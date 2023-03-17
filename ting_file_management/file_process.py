@@ -30,15 +30,15 @@ def remove(instance: Queue):
         path_file = instance.get()["nome_do_arquivo"]
 
         instance.dequeue()
-    
+
         print(f"Arquivo {path_file} removido com sucesso")
 
     except IndexError:
         print("Não há elementos")
+
 
 def file_metadata(instance: Queue, position: int):
     try:
         print(instance.search(position))
     except IndexError:
         print("Posição inválida", file=sys.stderr)
-
