@@ -11,7 +11,7 @@ class Queue(AbstractQueue):
     def enqueue(self, value):
         self.data.append(value)
 
-    def dequeue(self):
+    def dequeue(self) -> str:
         return self.data.pop(0)
 
     def search(self, index):
