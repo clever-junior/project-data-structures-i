@@ -14,6 +14,9 @@ class Queue(AbstractQueue):
     def dequeue(self) -> str:
         return self.data.pop(0)
 
+    def get(self):
+        return self.data[0]
+
     def search(self, index):
         if index < 0:
             raise IndexError

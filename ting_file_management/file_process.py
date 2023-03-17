@@ -6,6 +6,7 @@ from ting_file_management.queue import Queue
 project = Queue()
 path = "statics/arquivo_teste.txt"
 
+
 def process(path_file: str, instance: Queue):
     for element in instance.data:
         if element["nome_do_arquivo"] == path_file:
@@ -23,16 +24,21 @@ def process(path_file: str, instance: Queue):
 
     print(report)
 
+
 def remove(instance: Queue):
-    if not len(instance):
-        print("Não há elementos")        
-        
-    path_file = instance.data[0]["nome_do_arquivo"]  
+    try:
+        path_file = instance.get()["nome_do_arquivo"]
+
+        instance.dequeue()
     
-    instance.dequeue()
+        print(f"Arquivo {path_file} removido com sucesso")
 
-    print(f"Arquivo {path_file} removido com sucesso")
+    except IndexError:
+        print("Não há elementos")
 
+def file_metadata(instance: Queue, position: int):
+    try:
+        print(instance.search(position))
+    except IndexError:
+        print("Posição inválida", file=sys.stderr)
 
-def file_metadata(instance: Queue, position):
-    """Aqui irá sua implementação"""
