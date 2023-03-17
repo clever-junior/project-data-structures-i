@@ -4,12 +4,7 @@ def txt_importer(path_file: str):
 
     try:
         with open(path_file) as txt_file:
-            lines = txt_file.readlines()
-
-        for line in lines:
-            line.replace("\\n", "\n")
-
-        return lines
+            return txt_file.read().split("\n")
 
     except FileNotFoundError:
         raise FileNotFoundError(f"Arquivo {path_file} não encontrado")
