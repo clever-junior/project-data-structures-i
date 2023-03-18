@@ -30,10 +30,10 @@ def test_basic_priority_queueing():
     assert given == mock1
 
     # Test inverted priority
-    assert priority_queue.is_priority(mock) == False
+    assert not priority_queue.is_priority(mock) 
 
     # Test no priority
-    assert priority_queue.is_priority(mock1) == True
+    assert priority_queue.is_priority(mock1) 
 
     # Test search should raise index error
     with pytest.raises(IndexError):
