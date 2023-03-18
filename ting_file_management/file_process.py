@@ -1,13 +1,8 @@
 import sys
 from ting_file_management.file_management import txt_importer
-from ting_file_management.queue import Queue
 
 
-project = Queue()
-path = "statics/arquivo_teste.txt"
-
-
-def process(path_file: str, instance: Queue):
+def process(path_file: str, instance):
     for element in instance.data:
         if element["nome_do_arquivo"] == path_file:
             return None
@@ -25,7 +20,7 @@ def process(path_file: str, instance: Queue):
     print(report)
 
 
-def remove(instance: Queue):
+def remove(instance):
     try:
         path_file = instance.get()["nome_do_arquivo"]
 
@@ -37,7 +32,7 @@ def remove(instance: Queue):
         print("Não há elementos")
 
 
-def file_metadata(instance: Queue, position: int):
+def file_metadata(instance, position: int):
     try:
         print(instance.search(position))
     except IndexError:
