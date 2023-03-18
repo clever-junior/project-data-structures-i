@@ -1,10 +1,13 @@
+import sys
+
+
 def txt_importer(path_file: str):
     if not path_file.endswith(".txt"):
-        raise FileNotFoundError("Formato inválido")
+        print("Formato inválido", file=sys.stderr)
 
     try:
         with open(path_file) as txt_file:
             return txt_file.read().split("\n")
 
     except FileNotFoundError:
-        raise FileNotFoundError(f"Arquivo {path_file} não encontrado")
+        print(f"Arquivo {path_file} não encontrado", file=sys.stderr)
