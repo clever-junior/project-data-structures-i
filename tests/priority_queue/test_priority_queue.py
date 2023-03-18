@@ -1,7 +1,4 @@
-from re import search
 from pytest_dependency import pytest
-from ting_file_management.file_management import txt_importer
-from ting_file_management.file_process import process
 from ting_file_management.priority_queue import PriorityQueue
 
 
@@ -9,12 +6,12 @@ def test_basic_priority_queueing():
     # inicializando variáveis
     priority_queue = PriorityQueue()
     mock = {
-        "nome_do_arquivo": "test1.txt",
+        "nome_do_arquivo": "...",
         "qtd_linhas": 9,
         "linhas_do_arquivo": ["..."],
     }
     mock1 = {
-        "nome_do_arquivo": "test1.txt",
+        "nome_do_arquivo": "...",
         "qtd_linhas": 4,
         "linhas_do_arquivo": ["..."],
     }
